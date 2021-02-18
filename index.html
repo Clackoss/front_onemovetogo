@@ -69,12 +69,15 @@
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>Nom du site</label>
-                                    <input required="required" class="form-control" name="name" id="name" type="text" placeholder="Nom du site"/>
+                                    <input required="required" class="form-control" name="name" id="name" type="text" placeholder="Nom du site.onemovetogo.fr"/>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <br />
-                            <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Obtenir mon site</button></div>
+                            <div class="form-group"><
+                                class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Obtenir mon site</button></div>
+                            <button onclick="myFunction()">Try it</button>
+                            
                         </form>
                     </div>
                 </div>
@@ -125,5 +128,17 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+            function myFunction() {
+                let x = document.getElementById("name").value;
+                const dataToSend = JSON.stringify({"branch": "master", "author_email": "author@example.com", "author_name": "Firstname Lastname", "content": x, "commit_message": "new website"});
+                let dataReceived = ""; 
+                fetch("http://52.143.149.50/api/v4/projects/3/repository/files/test2.txt?ref=master", {
+                    method: "post",
+                    headers: { "Content-Type": "application/json", "PRIVATE-TOKEN": "Dmm1H6VijD9Td6F_iCMh"},
+                    body: dataToSend
+                    })  
+            }
+</script>
     </body>
 </html>
