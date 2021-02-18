@@ -132,7 +132,6 @@
         <script>
             function myFunction() {
                 let x = document.getElementById("name").value;
-                window.alert(x);
                 const dataToSend = JSON.stringify({"branch": "master", "author_email": "author@example.com", "author_name": "Firstname Lastname", "content": x, "commit_message": "new website"});
                 let dataReceived = ""; 
                 fetch("http://52.143.149.50/api/v4/projects/3/repository/files/test2.txt?ref=master", {
